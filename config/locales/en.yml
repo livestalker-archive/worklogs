@@ -1,0 +1,6 @@
+# English strings go here for Rails i18n
+en:
+  # my_label: "My label"
+  field_today: 'Today’s Activities'
+  field_tomorrow: 'Tomorrow’s Activities'
+  field_closed: 'Closed Activities'

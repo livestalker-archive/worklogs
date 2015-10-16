@@ -1,0 +1,45 @@
+<%= render :partial => 'nav' %>
+
+<h2>Worklogs</h2>
+
+<p class="pagination"><%= pagination_links_full @pages %></p>
+
+<% @worklogs.each do |worklog| %>
+
+    <h3>
+      <%= avatar(worklog.author, :size => "18") %>
+      <%= h worklog.author.firstname %> <%= h worklog.author.lastname %>
+    </h3>
+
+    <div class="contextual">
+      <%= link_to "", {:action => 'edit', :id => worklog.id}, :class => 'icon icon-edit', :accesskey => accesskey(:edit) if is_editable(worklog)%>
+      <!--%= link_to "Details", worklog_path(:id => worklog.id) %-->
+    </div>
+
+    <p class="author"><%= authoring worklog.created_at, worklog.author %> </p>
+
+    <div class="wiki">
+
+      <table width="100%">
+        <tr>
+          <td width="50%"><b>Today’s Activities</b></td>
+          <td width="50%"><b>Tomorrow’s Activities</b></td>
+        </tr>
+        <tr>
+          <td><%= textilizable(worklog.today) %></td>
+          <td><%= textilizable(worklog.tomorrow) %></td>
+        </tr>
+        <tr>
+          <td colspan=2><b>Closed Activities</b></td>
+        </tr>
+        <tr>
+          <td COLSPAN=3>
+            <%= textilizable(worklog.closed) %>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+<% end %>
+
+<p class="pagination"><%= pagination_links_full @pages %></p>

@@ -1,0 +1,5 @@
+<div class="contextual">
+  <%= link_to('Add new worklog', new_worklog_path(), :class => 'icon icon-add') + ' |' %>
+  <%= link_to('My worklogs', worklogs_my_path) + ' |' %>
+  <%= link_to_if(User.current.admin?, 'All worklogs', worklogs_path) %>
+</div>

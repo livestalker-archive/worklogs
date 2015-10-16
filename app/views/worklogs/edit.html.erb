@@ -1,0 +1,11 @@
+<%= render :partial => "nav" %>
+
+<h2>Edit worklog</h2>
+
+<%= labelled_form_for @worklog, :url => worklogs_path(:id => @worklog.id), :html => {:id => 'worklog-form'} do |f| %>
+    <%= render :partial => 'form', :locals => {:f => f} %>
+    <%= submit_tag 'Submit' %>
+    <!--%= preview_link preview_worklogs_path(), 'worklog-form' %-->
+<% end %>
+
+<!--sidebar-->

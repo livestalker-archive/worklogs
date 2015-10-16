@@ -1,0 +1,22 @@
+<%= error_messages_for @worklog %>
+
+<div class="box tabular"> 
+
+<p>Day: <%=@day%></p>
+</div>
+
+
+<div class="box tabular">
+	<fieldset>
+		<legend>Activities</legend>
+		<p><%= f.text_area :today, :required => true, :cols => 40, :value => "#{@worklog.today || 'Today’s Activities'}",:rows => 15, :class => 'wiki-edit' %></p>
+		<p><%= f.text_area :tomorrow, :required => false, :cols => 40, :value => "#{@worklog.tomorrow || 'Tomorrow’s Activities'}",:rows => 10, :class => 'wiki-edit' %></p>
+		<p><%= f.text_area :closed, :required => false, :cols => 40, :value => "#{@worklog.closed || 'Closed Activities'}", :rows => 5, :class => 'wiki-edit' %></p>
+	</fieldset>
+</div>
+
+
+
+<!--%= wikitoolbar_for 'worklog_do' %-->
+<!--%= wikitoolbar_for 'worklog_plan_done' %-->
+
