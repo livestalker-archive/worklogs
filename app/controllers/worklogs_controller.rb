@@ -24,7 +24,7 @@ class WorklogsController < ApplicationController
     if User.current.admin?
       load_worklogs
     else
-      redirect_to worklogs_my_path ()
+      redirect_to worklogs_my_path
     end
   end
 
