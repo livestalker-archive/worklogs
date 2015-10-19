@@ -17,8 +17,7 @@ class WorklogMailer < Mailer
     @day = day || Date.today.to_s
     get_all_debtors
     recipients = @all_need_worklogs_users.collect(&:mail)
-    recipient_manager = 'alexey@livestalker.net'
-    mail :to => recipient_manager,
+    mail :to => Setting.plugin_worklogs['WORKLOGS_MAIL_CC'],
          :subject => 'Test worklogs'
   end
 
