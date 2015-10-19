@@ -5,7 +5,7 @@ class WorklogMailer < Mailer
     #@url = url_for(:controller => 'worklogs', :action => 'index', :day => day)
 
     #recipients
-    mail :to =>  '' ,
+    mail :to =>  'alexey@livestalker.net' ,
          :subject => 'Test worklogs'
   end
   
