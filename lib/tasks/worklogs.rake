@@ -5,7 +5,7 @@ namespace :worklogs do
     day = ENV['day'] || Date.today.to_s
     puts 'Check that all worklogs created.'
     Mailer.with_synched_deliveries do
-      WorklogMailer.day_log(day).deliver
+      WorklogMailer.check_worklogs(day).deliver
     end
   end
 
