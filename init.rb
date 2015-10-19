@@ -8,6 +8,8 @@ Redmine::Plugin.register :worklogs do
 
   permission :worklogs, {:worklogs => 'index', :worklogs => 'my'}
 
+  settings :default => {'empty' => true}, :partial => 'settings/worklogs_settings'
+
   menu :top_menu,
        :worklogs,
        {:controller => 'worklogs', :action => 'my'},
