@@ -1,4 +1,5 @@
-Users who did not create the log:
-<% @all_need_worklogs_users.each do |user| %>
-    - <% user.id %>
-<% end %>
+Users who did not create the worklog:
+Day: <%= @day %>
+  <% @all_need_worklogs_users.each do |user| %>
+      - <%= user.name() %>
+  <% end %>
