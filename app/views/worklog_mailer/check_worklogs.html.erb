@@ -1,6 +1,7 @@
-<h1>Users who did not create the log:</h1>
+<h1>Users who did not create the worklog:</h1>
+<p><b>Day: <%= @day %></b></p>
 <ul>
   <% @all_need_worklogs_users.each do |user| %>
-      <li><%= user.id %></li>
+      <li><%= user.name() %></li>
   <% end %>
 </ul>

@@ -15,6 +15,7 @@ class WorklogMailer < Mailer
 
   def check_worklogs(day)
     #@url = url_for(:controller => 'worklogs', :action => 'index', :day => day)
+    @day = day || Date.today.to_s
     get_all_debtors
     recipients = @all_need_worklogs_users.collect(&:mail)
     recipient_manager = 'alexey@livestalker.net'
