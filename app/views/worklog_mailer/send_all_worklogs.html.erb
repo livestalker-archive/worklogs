@@ -1,7 +1,5 @@
 <% @worklogs.each do |worklog| %>
-
     <p class="author"><a href="<%= user_url worklog.author %>"><%= worklog.author.name() %></a></p>
-
     <div class="wiki">
 
       <table width="100%" style="border: 1px solid #000000; border-collapse: collapse;">
@@ -10,7 +8,7 @@
           <td width="50%" style="border: 1px solid #000000"><b>Tomorrow’s Activities</b></td>
         </tr>
         <tr>
-          <td style="border: 1px solid #000000"><%= textilizable(worklog.today) %></td>
+          <td style="border: 1px solid #000000"><%= textilizable(issue_links(worklog.today)) %></td>
           <td style="border: 1px solid #000000"><%= textilizable(worklog.tomorrow) %></td>
         </tr>
         <tr>

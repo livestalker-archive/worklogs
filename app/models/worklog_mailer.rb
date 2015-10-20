@@ -1,5 +1,6 @@
 #encoding: utf-8
 class WorklogMailer < Mailer
+  add_template_helper(WorklogsHelper)
 
   def get_all_debtors
     @all_users = User.status('1').all
