@@ -8,7 +8,7 @@
   <% @all_need_worklogs_users.each do |user| %>
       <tr>
         <td><%= user.id %></td>
-        <td><%= user.name() %></td>
+        <td><a href="<%= user_url worklog.author %>"><%= worklog.author.name() %></a></td>
       </tr>
   <% end %>
 </table>

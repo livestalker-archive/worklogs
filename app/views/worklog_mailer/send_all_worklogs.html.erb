@@ -1,6 +1,6 @@
 <% @worklogs.each do |worklog| %>
 
-    <p class="author"><%= user_url worklog.author %> </p>
+    <p class="author"><a href="<%= user_url worklog.author %>"><%= worklog.author.name() %></a></p>
 
     <div class="wiki">
 
