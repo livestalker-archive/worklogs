@@ -18,12 +18,14 @@ class WorklogMailer < Mailer
     get_all_debtors
     recipients = @all_need_worklogs_users.collect(&:mail)
     mail :to => Setting.plugin_worklogs['WORKLOGS_MAIL_CC'],
-         :subject => 'Test worklogs'
+         :subject => 'Missing worklogs'
   end
 
   def send_all_worklogs(day)
     @day = day || Date.today.to_s
     @worklogs = Worklog.where('DATE(created_at) = ?', @day).order('created_at desc, id desc')
+    mail :to => Setting.plugin_worklogs['WORKLOGS_MAIL_CC'],
+         :subject => 'Day worklogs'
   end
 
 end
