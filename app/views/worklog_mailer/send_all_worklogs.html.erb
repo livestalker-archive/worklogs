@@ -1,11 +1,6 @@
 <% @worklogs.each do |worklog| %>
 
-    <h3>
-      <%= avatar(worklog.author, :size => "18") %>
-      <%= h worklog.author.firstname %> <%= h worklog.author.lastname %>
-    </h3>
-
-    <p class="author"><%= authoring worklog.created_at, worklog.author %> </p>
+    <p class="author"><%= user_url worklog.author %> </p>
 
     <div class="wiki">
 
