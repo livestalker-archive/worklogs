@@ -2,38 +2,15 @@
 <html>
 <head>
   <title>Missing worklogs</title>
-  <style type="text/css">
-      table.list {
-          border: 1px solid #e4e4e4;
-          border-collapse: collapse;
-          width: 100%;
-          margin-bottom: 4px;
-      }
-
-      table.list thead th {
-          border-width: 1px;
-          border-style: solid;
-          border-top-color: #d7d7d7;
-          border-right-color: #d7d7d7;
-          border-left-color: #d7d7d7;
-          border-bottom-color: #999999;
-      }
-
-      table.list th {
-          background-color: #EEEEEE;
-          padding: 4px;
-          white-space: nowrap;
-      }
-  </style>
 </head>
 <body>
 <h1>Users who did not create the worklog:</h1>
 
 <p><b>Day: <%= @day %></b></p>
-<table class="list" width="100%">
+<table class="list" width="50%" style="border: 1px solid #000000">
   <tr>
     <td width="10%">ID</td>
-    <td width="90%">User</td>
+    <td width="40%">User</td>
   </tr>
   <% @all_need_worklogs_users.each do |user| %>
       <tr>
