@@ -1,28 +1,34 @@
-<style>
-    table.list {
-        border: 1px solid #e4e4e4;
-        border-collapse: collapse;
-        width: 100%;
-        margin-bottom: 4px;
-    }
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Missing worklogs</title>
+  <style>
+      table.list {
+          border: 1px solid #e4e4e4;
+          border-collapse: collapse;
+          width: 100%;
+          margin-bottom: 4px;
+      }
 
-    table.list thead th {
-        border-width: 1px;
-        border-style: solid;
-        border-top-color: #d7d7d7;
-        border-right-color: #d7d7d7;
-        border-left-color: #d7d7d7;
-        border-bottom-color: #999999;
-    }
+      table.list thead th {
+          border-width: 1px;
+          border-style: solid;
+          border-top-color: #d7d7d7;
+          border-right-color: #d7d7d7;
+          border-left-color: #d7d7d7;
+          border-bottom-color: #999999;
+      }
 
-    table.list th {
-        background-color: #EEEEEE;
-        padding: 4px;
-        white-space: nowrap;
-    }
-</style>
-
+      table.list th {
+          background-color: #EEEEEE;
+          padding: 4px;
+          white-space: nowrap;
+      }
+  </style>
+</head>
+<body>
 <h1>Users who did not create the worklog:</h1>
+
 <p><b>Day: <%= @day %></b></p>
 <table class="list" width="100%">
   <tr>
@@ -38,3 +44,5 @@
 </table>
 </br>
 <%= textilizable(Setting.plugin_worklogs['WORKLOGS_MAIL_FOOTER']) %>
+</body>
+</html>
