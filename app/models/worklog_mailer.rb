@@ -23,7 +23,7 @@ class WorklogMailer < Mailer
 
   def send_all_worklogs(day)
     @day = day || Date.today.to_s
-    @worklogs = Worklog.where('DATE(created_at) = ?', @day)
+    @worklogs = Worklog.where('DATE(created_at) = ?', @day).order('created_at desc, id desc')
   end
 
 end
