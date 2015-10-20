@@ -1,4 +1,10 @@
 <p>
+  <label>Turn off worklogs:</label>
+  <%= check_box_tag 'settings[WORKLOGS_TURNOFF_GLOBAL]', 1, settings['WORKLOGS_TURNOFF_GLOBAL'] %>
+  </br>
+  <em>Check to disable worklogs globally.</em>
+</p>
+<p>
   <label>Exclude users (IDs) from worklogs:</label>
   <%= text_field_tag 'settings[WORKLOGS_UN_IDS]', settings['WORKLOGS_UN_IDS'] || '' %>
   <br/>
@@ -12,3 +18,9 @@
   <em>Input mail for global manager.</em>
 </p>
 
+<p>
+  <label>Mail footer:</label>
+  <%= text_area_tag 'settings[WORKLOGS_MAIL_FOOTER]', settings["WORKLOGS_MAIL_FOOTER"] || '', :cols => 40, :rows => 10 %>
+  <br/>
+  <em>Mail`s footer.</em>
+</p>

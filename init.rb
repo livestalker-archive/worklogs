@@ -2,7 +2,7 @@ Redmine::Plugin.register :worklogs do
   name 'Worklogs plugin'
   author 'Alexey V. Grebenshchikov'
   description ''
-  version '0.1.0'
+  version '0.1.3'
   url ''
   author_url ''
 
