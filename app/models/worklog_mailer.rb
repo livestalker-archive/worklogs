@@ -17,7 +17,8 @@ class WorklogMailer < Mailer
     @day = day || Date.today.to_s
     get_all_debtors
     recipients = @all_need_worklogs_users.collect(&:mail)
-    mail :to => Setting.plugin_worklogs['WORKLOGS_MAIL_CC'],
+    mail :to => Setting.plugin_worklogs['WORKLOGS_MAIL_GLOBAL'],
+         :cc => Setting.plugin_worklogs['WORKLOGS_MAIL_CC'],
          :subject => 'Missing worklogs'
   end
 
