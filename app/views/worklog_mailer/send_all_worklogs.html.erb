@@ -4,20 +4,20 @@
 
     <div class="wiki">
 
-      <table width="100%">
+      <table width="100%" style="border: 1px solid #000000; border-collapse: collapse;">
         <tr>
-          <td width="50%"><b>Today’s Activities</b></td>
-          <td width="50%"><b>Tomorrow’s Activities</b></td>
+          <td width="50%" style="border: 1px solid #000000"><b>Today’s Activities</b></td>
+          <td width="50%" style="border: 1px solid #000000"><b>Tomorrow’s Activities</b></td>
         </tr>
         <tr>
-          <td><%= textilizable(worklog.today) %></td>
-          <td><%= textilizable(worklog.tomorrow) %></td>
+          <td style="border: 1px solid #000000"><%= textilizable(worklog.today) %></td>
+          <td style="border: 1px solid #000000"><%= textilizable(worklog.tomorrow) %></td>
         </tr>
         <tr>
-          <td colspan=2><b>Closed Activities</b></td>
+          <td colspan=2 style="border: 1px solid #000000"><b>Closed Activities</b></td>
         </tr>
         <tr>
-          <td COLSPAN=3>
+          <td colspan=3 style="border: 1px solid #000000">
             <%= textilizable(worklog.closed) %>
           </td>
         </tr>
