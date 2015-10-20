@@ -21,4 +21,9 @@ class WorklogMailer < Mailer
          :subject => 'Test worklogs'
   end
 
+  def send_all_worklogs(day)
+    @day = day || Date.today.to_s
+    @worklogs = Worklog.where('DATE(created_at) = ?', @day)
+  end
+
 end
