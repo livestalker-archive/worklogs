@@ -13,9 +13,16 @@
 
 <p>
   <label>Global manager mail:</label>
-  <%= text_field_tag 'settings[WORKLOGS_MAIL_CC]', settings['WORKLOGS_MAIL_CC'] || '' %>
+  <%= text_field_tag 'settings[WORKLOGS_MAIL_GLOBAL]', settings['WORKLOGS_MAIL_GLOBAL'] || '' %>
   <br/>
   <em>Input mail for global manager.</em>
+</p>
+
+<p>
+  <label>CC mail:</label>
+  <%= text_field_tag 'settings[WORKLOGS_MAIL_CC]', settings['WORKLOGS_MAIL_CC'] || '' %>
+  <br/>
+  <em>Input mail for copy.</em>
 </p>
 
 <p>
