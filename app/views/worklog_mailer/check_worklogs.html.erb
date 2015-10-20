@@ -8,12 +8,12 @@
 
 <p><b>Day: <%= @day %></b></p>
 <table class="list" width="50%" style="border: 1px solid #000000">
-  <tr>
+  <tr style="border: 1px solid #000000">
     <td width="10%">ID</td>
     <td width="40%">User</td>
   </tr>
   <% @all_need_worklogs_users.each do |user| %>
-      <tr>
+      <tr style="border: 1px solid #000000">
         <td><%= user.id %></td>
         <td><a href="<%= user_url user %>"><%= user.name() %></a></td>
       </tr>
