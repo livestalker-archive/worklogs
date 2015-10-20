@@ -8,15 +8,15 @@
           <td width="50%" style="border: 1px solid #000000"><b>Tomorrow’s Activities</b></td>
         </tr>
         <tr>
-          <td style="border: 1px solid #000000"><%= textilizable(issue_links(worklog.today)) %></td>
-          <td style="border: 1px solid #000000"><%= textilizable(worklog.tomorrow) %></td>
+          <td style="border: 1px solid #000000"><%= worklogs_textilizable(worklog.today) %></td>
+          <td style="border: 1px solid #000000"><%= worklogs_textilizable(worklog.tomorrow) %></td>
         </tr>
         <tr>
           <td colspan=2 style="border: 1px solid #000000"><b>Closed Activities</b></td>
         </tr>
         <tr>
           <td colspan=3 style="border: 1px solid #000000">
-            <%= textilizable(worklog.closed) %>
+            <%= worklogs_textilizable(worklog.closed) %>
           </td>
         </tr>
       </table>
