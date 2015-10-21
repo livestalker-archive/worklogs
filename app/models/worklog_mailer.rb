@@ -5,9 +5,13 @@ class WorklogMailer < Mailer
   def get_all_debtors
     @all_users = User.status('1').all
     users_need_worklogs = Array.new
+    field_worklogs_turnoff = CustomField.find_by_name('Worklogs turnoff')
+    field_worklogs_start_date = CustomField.find_by_name('Worklogs start date')
+    field_worklogs_end_date = CustomField.find_by_name('Worklogs end date')
     @all_users.each do |user|
+      worklogs_turnoff = user.custom_field_value(field_worklogs_turnoff).to_i
       worklog = Worklog.where(:user_id => user.id).where('DATE(created_at) = ?', @day)
-      if worklog.empty?
+      if worklog.empty? && worklogs_turnoff == 0
         users_need_worklogs.push user.id
       end
     end
