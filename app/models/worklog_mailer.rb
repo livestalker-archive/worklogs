@@ -46,7 +46,6 @@ class WorklogMailer < Mailer
     @day = day || Date.today.to_s
     get_all_debtors
     recipients = @all_need_worklogs_users.collect(&:mail)
-    puts recipients
     #mail :to => recipients,
     mail :to => 'mi.aleksio@gmail.com',
          :subject => 'Worklogs reminder'
