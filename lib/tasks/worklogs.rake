@@ -11,6 +11,17 @@ namespace :worklogs do
     end
   end
 
+  desc '10:00 GMT+1 send reminder users with missings worklogs'
+  task :send_reminder => :environment do
+    day = ENV['day'] || Date.today.to_s
+    puts 'Send reminders'
+    unless Setting.plugin_worklogs['WORKLOGS_TURNOFF_GLOBAL'] == '1'
+      Mailer.with_synched_deliveries do
+        WorklogMailer.send_reminder(day).deliver
+      end
+    end
+  end
+
   desc '19:00 GMT+1, send the worklog.'
   task :send_worklogs => :environment do
     day = ENV['day'] || Date.today.to_s
