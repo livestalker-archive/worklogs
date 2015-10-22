@@ -1,5 +1,8 @@
 Users who did not create the worklog:
+
 Day: <%= @day %>
-  <% @all_need_worklogs_users.each do |user| %>
-      - <%= user.name() %> | id: <%= user.id %>
-  <% end %>
+<% @all_need_worklogs_users.each do |user| %>
+    <%= user.id %> :  <%= user.name() %> : <%= user_url user %>
+<% end %>
+
+<%= textilizable(Setting.plugin_worklogs['WORKLOGS_MAIL_FOOTER']) %>

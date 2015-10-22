@@ -1,0 +1,16 @@
+<% @worklogs.each do |worklog| %>
+    -------------------------------------
+    -------------------------------------
+    <%= worklog.author.name() %> : <%= user_url worklog.author %>
+    -------------------------------------
+    Today’s Activities
+    <%= worklogs_textilizable(worklog.today) %>
+    -------------------------------------
+    Tomorrow’s Activities
+    <%= worklogs_textilizable(worklog.tomorrow) %>
+    -------------------------------------
+    Closed Activities
+    <%= worklogs_textilizable(worklog.closed) %>
+<% end %>
+
+<%= textilizable(Setting.plugin_worklogs['WORKLOGS_MAIL_FOOTER']) %>
