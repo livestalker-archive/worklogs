@@ -9,11 +9,15 @@ module WorklogsHelper
   def is_worker(user)
     field_worklogs_turnoff = CustomField.find_by_name('Worklogs turnoff')
     worklogs_turnoff = user.custom_field_value(field_worklogs_turnoff).to_i
-    if worklogs_turnoff == 0
-      return true
-    else
+    if Worklog.where(:user_id => user.id).blank?
       return false
+    else
+      return true
     end
+  end
+
+  def count_worklogs(user)
+    Worklog.where(:user_id => user.id).count.to_s.rjust(3, "0")
   end
 
   def issue_links(text)
