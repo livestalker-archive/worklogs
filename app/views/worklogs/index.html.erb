@@ -12,7 +12,7 @@
     </h3>
 
     <div class="contextual">
-      <%= link_to "", {:action => 'edit', :id => worklog.id}, :class => 'icon icon-edit', :accesskey => accesskey(:edit) if is_editable(worklog)%>
+      <%= link_to "", {:action => 'edit', :id => worklog.id}, :class => 'icon icon-edit', :accesskey => accesskey(:edit) if is_editable(worklog) %>
       <!--%= link_to "Details", worklog_path(:id => worklog.id) %-->
     </div>
 
@@ -43,3 +43,8 @@
 <% end %>
 
 <p class="pagination"><%= pagination_links_full @pages %></p>
+<% if @show_filters %>
+    <% content_for :sidebar do %>
+        <%= render :partial => "sidebar" %>
+    <% end %>
+<% end %>

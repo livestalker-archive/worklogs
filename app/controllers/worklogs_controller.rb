@@ -16,14 +16,19 @@ class WorklogsController < ApplicationController
 
   def my
     @user_id = session[:user_id]
+    @show_filters = false
     load_worklogs
     render :action => :index
   end
 
   def index
     if User.current.admin?
+      @show_filters = true
+      @users = User.status('1').all
+      @user_id = params[:user_id]
       load_worklogs
     else
+      @show_filters = false
       redirect_to worklogs_my_path
     end
   end

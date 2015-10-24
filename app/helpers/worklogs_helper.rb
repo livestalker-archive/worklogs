@@ -6,6 +6,16 @@ module WorklogsHelper
     return false
   end
 
+  def is_worker(user)
+    field_worklogs_turnoff = CustomField.find_by_name('Worklogs turnoff')
+    worklogs_turnoff = user.custom_field_value(field_worklogs_turnoff).to_i
+    if worklogs_turnoff == 0
+      return true
+    else
+      return false
+    end
+  end
+
   def issue_links(text)
     text.gsub!(%r{<a( [^>]+?)?>(.*?)</a>|([\s\(,\-\[\>]|^)(!)?(([a-z0-9\-_]+):)?(attachment|document|version|forum|news|message|project|commit|source|export)?(((#)|((([a-z0-9\-_]+)\|)?(r)))((\d+)((#note)?-(\d+))?)|(:)([^"\s<>][^\s<>]*?|"[^"]+?"))(?=(?=[[:punct:]][^A-Za-z0-9_/])|,|\s|\]|<|$)}) do |m|
       tag_content, leading, esc, project_prefix, project_identifier, prefix, repo_prefix, repo_identifier, sep, identifier, comment_suffix, comment_id = $1, $3, $4, $5, $6, $7, $12, $13, $10 || $14 || $20, $16 || $21, $17, $19
@@ -108,7 +118,7 @@ module WorklogsHelper
             case prefix
               when nil
                 if oid.to_s == identifier &&
-                  issue = Issue.find_by_id(oid)
+                    issue = Issue.find_by_id(oid)
                   anchor = comment_id ? "note-#{comment_id}" : nil
                   link = link_to("##{oid}#{comment_suffix}",
                                  issue_url(issue, :only_path => false, :anchor => anchor),

@@ -1,0 +1,16 @@
+<h3>Worklogs filters</h3>
+
+<fieldset id="filters" class="collapsible">
+  <legend onclick="toggleFieldset(this);">Filter by user</legend>
+  <div style="">
+    <%= link_to "ALL", {:controller => "worklogs", :action => "index"}, {} %>
+    <br/>
+    <% @users.each do |user| %>
+        <% if is_worker(user) %>
+            <%= link_to user.name(), {:controller => "worklogs", :action => "index", :user_id => user.id} %>
+            <br/>
+        <% end %>
+    <% end %>
+  </div>
+</fieldset>
+
