@@ -26,15 +26,15 @@
           <td width="50%"><b>Tomorrow’s Activities</b></td>
         </tr>
         <tr>
-          <td><%= textilizable(worklog.today) %></td>
-          <td><%= textilizable(worklog.tomorrow) %></td>
+          <td><%= worklogs_textilizable_wp(worklog.today) %></td>
+          <td><%= worklogs_textilizable_wp(worklog.tomorrow) %></td>
         </tr>
         <tr>
           <td colspan=2><b>Closed Activities</b></td>
         </tr>
         <tr>
           <td COLSPAN=3>
-            <%= textilizable(worklog.closed) %>
+            <%= worklogs_textilizable_wp(worklog.closed) %>
           </td>
         </tr>
       </table>
