@@ -6,7 +6,7 @@ Redmine::Plugin.register :worklogs do
   url ''
   author_url ''
 
-  permission :worklogs, {:worklogs => 'index', :worklogs => 'my'}
+  permission :worklogs, {:worklogs => 'index', :worklogs => 'my', :worklogs => 'wtest'}
 
   settings :default => {'empty' => true}, :partial => 'settings/worklogs_settings'
 

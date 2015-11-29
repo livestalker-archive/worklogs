@@ -1,0 +1,31 @@
+Group: <%= @group.lastname %>
+<br>
+Users in this group:
+<br>
+<% @users.each do |user| %>
+    <%= user.lastname %>
+    <br>
+<% end %>
+<br>
+Issues:
+<br>
+<table>
+  <thead>
+  <tr>
+    <td>Status</td>
+    <td>Assigned to</td>
+    <td>Subject</td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @issues.each do |issue| %>
+      <% if issue.custom_field_value(@estimate_pm).nil? %>
+          <tr>
+            <td><%= issue.status %></td>
+            <td><%= issue.assigned_to %></td>
+            <td><%= worklogs_textilizable('#' + issue.id.to_s) %></td>
+          </tr>
+      <% end %>
+  <% end %>
+  </tbody>
+</table>

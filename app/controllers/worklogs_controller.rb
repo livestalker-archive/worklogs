@@ -66,6 +66,24 @@ class WorklogsController < ApplicationController
     end
   end
 
+  def wtest
+    # constants
+    closed_issue_id = 5
+    rejected_issue_id = 6
+    anjep_group_id = 3
+    active_user_status_id = '1'
+    # custom fields
+    @estimate_pm = CustomField.find_by_name('Estimate PM')
+    @estimate_dev = CustomField.find_by_name('Estimate DEV')
+    # Anjep group
+    @group = Group.find(anjep_group_id)
+    # Active users in group
+    @users = @group.users.status(active_user_status_id)
+    @issues = Issue.where(assigned_to: @users).where.not(status_id: [closed_issue_id, rejected_issue_id])
+    test1 = @issues[0].custom_field_value(@estimate_pm)
+    puts(test1)
+  end
+
   private
 
   def worklog_params

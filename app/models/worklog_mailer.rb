@@ -57,4 +57,27 @@ class WorklogMailer < Mailer
          :cc => Setting.plugin_worklogs['WORKLOGS_MAIL_CC'],
          :subject => 'Day worklogs'
   end
+
+  def send_estimate_pm
+    # constants
+    closed_issue_id = 5
+    rejected_issue_id = 6
+    anjep_group_id = 3
+    active_user_status_id = '1'
+    # custom fields
+    @estimate_pm = CustomField.find_by_name('Estimate PM')
+    @estimate_dev = CustomField.find_by_name('Estimate DEV')
+    # Anjep group
+    @group = Group.find(anjep_group_id)
+    # Active users in group
+    @users = @group.users.status(active_user_status_id)
+    # Issues assignet to selected users with status not[closed, rejected]
+    @issues = Issue.where(assigned_to: @users).where.not(status_id: [closed_issue_id, rejected_issue_id])
+    mail :to => 'mi.aleksio@gmail.com',
+         :subject => 'Estimate PM report'
+  end
+
+  def send_estimate_dev
+
+  end
 end
