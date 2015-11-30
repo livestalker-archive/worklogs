@@ -40,4 +40,12 @@ namespace :worklogs do
       WorklogMailer.send_estimate_pm.deliver
     end
   end
+
+  desc '12:00 GMT+1 (noon), send estimate dev.'
+  task :send_estimate_dev => :environment do
+    puts 'Send estimate dev.'
+    Mailer.with_synched_deliveries do
+      WorklogMailer.send_estimate_dev.deliver
+    end
+  end
 end

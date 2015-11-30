@@ -8,7 +8,7 @@
   </thead>
   <tbody>
   <% @issues.each do |issue| %>
-      <% if issue.custom_field_value(@estimate_pm).nil? %>
+      <% if issue.custom_field_value(@estimate_dev).nil? %>
           <tr>
             <td style="border: 1px solid #000000"><%= issue.status %></td>
             <td style="border: 1px solid #000000"><%= issue.assigned_to %></td>
