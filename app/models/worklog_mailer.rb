@@ -73,7 +73,8 @@ class WorklogMailer < Mailer
     @users = @group.users.status(active_user_status_id)
     # Issues assignet to selected users with status not[closed, rejected]
     @issues = Issue.where(assigned_to: @users).where.not(status_id: [closed_issue_id, rejected_issue_id])
-    mail :to => 'mi.aleksio@gmail.com',
+    mail :to => Setting.plugin_worklogs['WORKLOGS_MAIL_GLOBAL'],
+         :cc => Setting.plugin_worklogs['WORKLOGS_MAIL_CC'],
          :subject => 'Estimate PM report'
   end
 
@@ -92,7 +93,8 @@ class WorklogMailer < Mailer
     @users = @group.users.status(active_user_status_id)
     # Issues assignet to selected users with status not[closed, rejected]
     @issues = Issue.where(assigned_to: @users).where.not(status_id: [closed_issue_id, rejected_issue_id])
-    mail :to => 'mi.aleksio@gmail.com',
+    mail :to => Setting.plugin_worklogs['WORKLOGS_MAIL_GLOBAL'],
+         :cc => Setting.plugin_worklogs['WORKLOGS_MAIL_CC'],
          :subject => 'Estimate DEV report'
   end
 end
