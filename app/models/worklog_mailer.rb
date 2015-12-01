@@ -95,7 +95,7 @@ class WorklogMailer < Mailer
     @issues = Issue.where(assigned_to: @users).where.not(status_id: [closed_issue_id, rejected_issue_id])
     mail :to => Setting.plugin_worklogs['WORKLOGS_MAIL_GLOBAL'],
          :cc => Setting.plugin_worklogs['WORKLOGS_MAIL_CC'],
-         :subject => 'Estimate DEV report'
+         :subject => 'Summary Estimate DEV report'
   end
 
   def send_estimate_dev_p(user)
@@ -103,7 +103,7 @@ class WorklogMailer < Mailer
     closed_issue_id = 5
     rejected_issue_id = 6
     @issues = Issue.where(assigned_to: user).where.not(status_id: [closed_issue_id, rejected_issue_id])
-    mail :to => 'mi.aleksio@gmail.com',
+    mail :to => user.mail,
          :subject => 'Personal Estimate DEV report'
   end
 end
