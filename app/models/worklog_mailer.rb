@@ -104,6 +104,7 @@ class WorklogMailer < Mailer
     rejected_issue_id = 6
     @issues = Issue.where(assigned_to: user).where.not(status_id: [closed_issue_id, rejected_issue_id])
     mail :to => user.mail,
+         :cc => Setting.plugin_worklogs['WORKLOGS_MAIL_CC'],
          :subject => 'Personal Estimate DEV report'
   end
 end
