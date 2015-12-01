@@ -48,4 +48,21 @@ namespace :worklogs do
       WorklogMailer.send_estimate_dev.deliver
     end
   end
+
+  desc '12:00 GMT+1 (noon), send personal DEV reports'
+  task :send_estimate_dev_p => :environment do
+    puts 'Send personal estimate dev'
+    # constants
+    anjep_group_id = 3
+    active_user_status_id = '1'
+    # Anjep group
+    @group = Group.find(anjep_group_id)
+    # Active users in group
+    @users = @group.users.status(active_user_status_id)
+    @users.each do |user|
+      Mailer.with_synched_deliveries do
+        WorklogMailer.send_estimate_dev_p(user).deliver
+      end
+    end
+  end
 end

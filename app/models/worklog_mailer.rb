@@ -97,4 +97,13 @@ class WorklogMailer < Mailer
          :cc => Setting.plugin_worklogs['WORKLOGS_MAIL_CC'],
          :subject => 'Estimate DEV report'
   end
+
+  def send_estimate_dev_p(user)
+    # constants
+    closed_issue_id = 5
+    rejected_issue_id = 6
+    @issues = Issue.where(assigned_to: user).where.not(status_id: [closed_issue_id, rejected_issue_id])
+    mail :to => 'mi.aleksio@gmail.com',
+         :subject => 'Personal Estimate DEV report'
+  end
 end

@@ -1,0 +1,31 @@
+<p>
+  Please update the items below in the field Estimate DEV with the amount of hours you expect it will take to solve the issue.
+</p>
+<p>It should be in the format:</p>
+<ul>
+  <li>Simple tasks: 2/4/8/12/16 Hours</li>
+  <li>Complex tasks: 24/32/40 Hours</li>
+</ul>
+<br>
+<table style="border: 1px solid #000000; border-collapse: collapse;">
+  <thead>
+  <tr>
+    <td style="border: 1px solid #000000">Status</td>
+    <td style="border: 1px solid #000000">Assigned to</td>
+    <td style="border: 1px solid #000000">Subject</td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @issues.each do |issue| %>
+      <% if issue.custom_field_value(@estimate_dev).nil? %>
+          <tr>
+            <td style="border: 1px solid #000000"><%= issue.status %></td>
+            <td style="border: 1px solid #000000"><%= issue.assigned_to %></td>
+            <td style="border: 1px solid #000000"><%= worklogs_textilizable('#' + issue.id.to_s) %></td>
+          </tr>
+      <% end %>
+  <% end %>
+  </tbody>
+</table>
+<br>
+<%= textilizable(Setting.plugin_worklogs['WORKLOGS_MAIL_FOOTER']) %>
