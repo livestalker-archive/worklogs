@@ -10,6 +10,7 @@
 <table style="border: 1px solid #000000; border-collapse: collapse;">
   <thead>
   <tr>
+    <td style="border: 1px solid #000000">Project</td>
     <td style="border: 1px solid #000000">Status</td>
     <td style="border: 1px solid #000000">Assigned to</td>
     <td style="border: 1px solid #000000">Subject</td>
@@ -17,8 +18,9 @@
   </thead>
   <tbody>
   <% @issues.each do |issue| %>
-      <% if issue.custom_field_value(@estimate_dev).nil? %>
+      <% if issue.custom_field_value(@estimate_dev).blank? %>
           <tr>
+            <td style="border: 1px solid #000000"><%= issue.project.name %></td>
             <td style="border: 1px solid #000000"><%= issue.status %></td>
             <td style="border: 1px solid #000000"><%= issue.assigned_to %></td>
             <td style="border: 1px solid #000000"><%= worklogs_textilizable('#' + issue.id.to_s) %></td>

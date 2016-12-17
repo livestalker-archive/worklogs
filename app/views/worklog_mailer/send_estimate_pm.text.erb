@@ -3,7 +3,8 @@ It should be in the format:
  Simple tasks: 2/4/8/12/16 Hours
  Complex tasks: 24/32/40 Hours
 <% @issues.each do |issue| %>
-    <% if issue.custom_field_value(@estimate_pm).nil? %>
+    <% if issue.custom_field_value(@estimate_pm).blank? %>
+        <%= issue.project.name %>
         <%= issue.status %>
         <%= issue.assigned_to %>
         <%= worklogs_textilizable('#' + issue.id.to_s) %>

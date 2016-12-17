@@ -4,7 +4,8 @@ It should be in the format:
  Complex tasks: 24/32/40 Hours
 
 <% @issues.each do |issue| %>
-    <% if issue.custom_field_value(@estimate_dev).nil? %>
+    <% if issue.custom_field_value(@estimate_dev).blank? %>
+        <%= issue.project.name %>
         <%= issue.status %>
         <%= issue.assigned_to %>
         <%= worklogs_textilizable('#' + issue.id.to_s) %>
