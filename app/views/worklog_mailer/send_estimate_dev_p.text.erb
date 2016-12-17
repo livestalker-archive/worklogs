@@ -5,6 +5,7 @@ It should be in the format:
 
 <% @issues.each do |issue| %>
     <% if issue.custom_field_value(@estimate_dev).nil? %>
+        <%= issue.project.name %>
         <%= issue.status %>
         <%= issue.assigned_to %>
         <%= worklogs_textilizable('#' + issue.id.to_s) %>
